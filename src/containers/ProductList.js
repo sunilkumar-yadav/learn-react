@@ -3,7 +3,7 @@ import Product from "../components/Product.js";
 import {getProducts} from "../services/ProductService.js"
 
 class ProductList extends React.Component {
-state = {plist1:[]} //inherited from base class
+state = {plist1:[], hasError:false} //inherited from base class
 componentDidMount(){
     this.getData();
 }
@@ -18,6 +18,7 @@ getData(){
     })
     .catch((err=>{
         console.log("RESPONSE",err);
+        this.setState({plist1:err});
     }))
 }
 
