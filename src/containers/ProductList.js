@@ -3,11 +3,16 @@ import Product from "../components/Product.js";
 import {getProducts} from "../services/ProductService.js"
 
 class ProductList extends React.Component {
+plist1 =[];//Global Variable
+componentDidMount(){
+    this.getData();
+}
 
 getData(){
     getProducts()
     .then((res)=>{
-        console.log("RESPONSE",res);
+        console.log("RESPONSE",res.data);
+        this.plist1=res.data;
     })
     .catch((err=>{
         console.log("RESPONSE",err);
@@ -49,7 +54,7 @@ getData(){
 
                 */}
                 {
-                    plist.map((item) => (
+                    this.plist1.map((item) => (
                         <Product data={item} key={item.productId} wishlist={true}  btnClick={(data) => console.log("Added to Cart " + data)} />
                     )
                     )
