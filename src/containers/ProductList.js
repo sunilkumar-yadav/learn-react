@@ -39,7 +39,7 @@ class ProductList extends React.Component {
                 */}
                 {
                     plist.map((item) => (
-                        <Product data={item} wishlist={true}  btnClick={(data) => console.log("Added to Cart " + data)} />
+                        <Product data={item} key={item.productId} wishlist={true}  btnClick={(data) => console.log("Added to Cart " + data)} />
                     )
                     )
                 }
