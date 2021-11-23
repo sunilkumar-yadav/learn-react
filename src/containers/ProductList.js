@@ -1,7 +1,18 @@
 import React from "react";
-import Product from "../components/Product.js"
+import Product from "../components/Product.js";
+import {getProducts} from "../services/ProductService.js"
 
 class ProductList extends React.Component {
+
+getData(){
+    getProducts()
+    .then((res)=>{
+        console.log("RESPONSE",res);
+    })
+    .catch((err=>{
+        console.log("RESPONSE",err);
+    }))
+}
 
     render() {
         const plist = [{
