@@ -14,6 +14,7 @@ getData(){
         console.log("RESPONSE",res.data);
         //this.state.plist1=res.data;
         this.setState({plist1:res.data});
+        //setState will call render
     })
     .catch((err=>{
         console.log("RESPONSE",err);
