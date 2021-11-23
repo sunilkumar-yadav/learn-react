@@ -26,6 +26,7 @@ class Product extends React.Component {
         <button onClick={()=> this.props.btnClick(data.productName)}> Add to {this.props.wishlist ? "Wishlist" : "Cart"}</button>
      
         {/* {this.renderStock()} */}
+        {this.renderStock()}
       
       </div>
     );
