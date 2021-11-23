@@ -3,7 +3,7 @@ import Product from "../components/Product.js";
 import {getProducts} from "../services/ProductService.js"
 
 class ProductList extends React.Component {
-plist1 =[];//Global Variable
+state = {plist1:[]} //inherited from base class
 componentDidMount(){
     this.getData();
 }
@@ -12,7 +12,8 @@ getData(){
     getProducts()
     .then((res)=>{
         console.log("RESPONSE",res.data);
-        this.plist1=res.data;
+        //this.state.plist1=res.data;
+        this.setState({plist1:res.data});
     })
     .catch((err=>{
         console.log("RESPONSE",err);
@@ -54,8 +55,8 @@ getData(){
 
                 */}
                 {
-                    this.plist1.map((item) => (
-                        <Product data={item} key={item.productId} wishlist={true}  btnClick={(data) => console.log("Added to Cart " + data)} />
+                    this.state.plist1.map((item,index) => (
+                        <Product data={item} key={item.productId} wishlist={true}  btnClick={(data,ev) => console.log("Added to Cart " + data + ev)} />
                     )
                     )
                 }

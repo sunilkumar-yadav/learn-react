@@ -23,7 +23,7 @@ class Product extends React.Component {
         {/*        <button> Add to Cart</button>*/}
 
         {/*Conditional Rendering*/}
-        <button onClick={()=> this.props.btnClick(data.productName)}> Add to {this.props.wishlist ? "Wishlist" : "Cart"}</button>
+        <button onClick={(event)=> this.props.btnClick(data.productName,event)}> Add to {this.props.wishlist ? "Wishlist" : "Cart"}</button>
      
         {/* {this.renderStock()} */}
         {this.renderStock()}
